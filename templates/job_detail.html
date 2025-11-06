@@ -11,8 +11,21 @@
 <h2>{{ job.title }}</h2>
 <h5 class="text-muted">{{ job.company }} • {{ job.location }}</h5>
 <hr>
-<p>{{ job.description }}</p>
-<p>
+
+<h4>Description</h4>
+<p>{{ job.description or 'Not provided' }}</p>
+
+{% if job.qualifications %}
+  <h4 class="mt-3">Qualifications</h4>
+  <p>{{ job.qualifications | replace('\n', '<br>') | safe }}</p>
+{% endif %}
+
+{% if job.requirements %}
+  <h4 class="mt-3">Requirements</h4>
+  <p>{{ job.requirements | replace('\n', '<br>') | safe }}</p>
+{% endif %}
+
+<p class="mt-3">
   <strong>Apply:</strong>
   {% if job.apply_email %}
     <a href="mailto:{{ job.apply_email }}">{{ job.apply_email }}</a>

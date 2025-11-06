@@ -14,14 +14,27 @@
     <label class="form-label">Location</label>
     <input class="form-control" name="location" value="{{ job.location }}">
   </div>
+
+  <div class="mb-3">
+    <label class="form-label">Description</label>
+    <textarea class="form-control" name="description" rows="5">{{ job.description }}</textarea>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Qualifications</label>
+    <textarea class="form-control" name="qualifications" rows="4">{{ job.qualifications }}</textarea>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Requirements / Responsibilities</label>
+    <textarea class="form-control" name="requirements" rows="4">{{ job.requirements }}</textarea>
+  </div>
+
   <div class="mb-3">
     <label class="form-label">Application email</label>
     <input class="form-control" name="apply_email" type="email" value="{{ job.apply_email }}">
   </div>
-  <div class="mb-3">
-    <label class="form-label">Description</label>
-    <textarea class="form-control" name="description" rows="6">{{ job.description }}</textarea>
-  </div>
+
   <button class="btn btn-primary">Save changes</button>
 </form>
 {% endblock %}

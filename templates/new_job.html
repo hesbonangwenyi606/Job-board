@@ -14,14 +14,27 @@
     <label class="form-label">Location</label>
     <input class="form-control" name="location">
   </div>
+
+  <div class="mb-3">
+    <label class="form-label">Description</label>
+    <textarea class="form-control" name="description" rows="5"></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Qualifications</label>
+    <textarea class="form-control" name="qualifications" rows="4" placeholder="List qualifications, each on its own line"></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Requirements / Responsibilities</label>
+    <textarea class="form-control" name="requirements" rows="4" placeholder="List requirements/responsibilities, each on its own line"></textarea>
+  </div>
+
   <div class="mb-3">
     <label class="form-label">Application email</label>
     <input class="form-control" name="apply_email" type="email">
   </div>
-  <div class="mb-3">
-    <label class="form-label">Description</label>
-    <textarea class="form-control" name="description" rows="6"></textarea>
-  </div>
+
   <button class="btn btn-primary">Create job</button>
 </form>
 {% endblock %}
