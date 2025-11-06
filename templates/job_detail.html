@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="mb-3">
+  <a href="{{ url_for('index') }}" class="btn btn-sm btn-secondary">← Back</a>
+  <a href="{{ url_for('edit_job', job_id=job.id) }}" class="btn btn-sm btn-outline-primary">Edit</a>
+  <form method="post" action="{{ url_for('delete_job', job_id=job.id) }}" style="display:inline;" onsubmit="return confirm('Delete this job?');">
+    <button class="btn btn-sm btn-outline-danger">Delete</button>
+  </form>
+</div>
+
+<h2>{{ job.title }}</h2>
+<h5 class="text-muted">{{ job.company }} • {{ job.location }}</h5>
+<hr>
+<p>{{ job.description }}</p>
+<p>
+  <strong>Apply:</strong>
+  {% if job.apply_email %}
+    <a href="mailto:{{ job.apply_email }}">{{ job.apply_email }}</a>
+  {% else %}
+    <span class="text-muted">No contact provided.</span>
+  {% endif %}
+</p>
+{% endblock %}

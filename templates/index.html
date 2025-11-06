@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="h3">Latest jobs</h1>
+  <form class="d-flex" method="get" action="{{ url_for('index') }}">
+    <input class="form-control me-2" name="q" placeholder="Search title or company" value="{{ q }}">
+    <button class="btn btn-outline-primary" type="submit">Search</button>
+  </form>
+</div>
+
+{% if not jobs %}
+  <p class="text-muted">No jobs found. Be the first to <a href="{{ url_for('new_job') }}">post a job</a>.</p>
+{% else %}
+  <div class="row">
+    {% for job in jobs %}
+      <div class="col-md-6 mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ job.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ job.company }} • {{ job.location }}</h6>
+            <p class="card-text">{{ job.description[:160] }}{% if job.description|length > 160 %}...{% endif %}</p>
+            <a href="{{ url_for('job_detail', job_id=job.id) }}" class="card-link">View</a>
+          </div>
+          <div class="card-footer text-muted">
+            Posted: {{ job.created_at }}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+{% endblock %}
