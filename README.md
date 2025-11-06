@@ -46,4 +46,3 @@ A simple job board web application built with Flask and SQLite.
 ## Notes
 - This is a minimal, self-contained example intended for learning and local use.
 - No authentication or file uploads included.
-# Job-board
